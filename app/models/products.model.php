@@ -1,5 +1,5 @@
 <?php
-
+    require_once './app/views/ApiView.php';
 class productsModel{
     private $db;
 
@@ -8,7 +8,12 @@ class productsModel{
     }
     
     function connect(){
-        $this->db = new PDO('mysql:host=localhost;' . 'dbname=db_cinemastore;charset=utf8', 'root', '');
+        try{
+            $this->db = new PDO('mysql:host=localhost;' . 'dbname=db_cinemastore;charset=utf8', 'root', '');
+        }
+        catch(exception $e){
+
+        }
     }
 
     function getAll($sort, $query, $page){
@@ -58,11 +63,15 @@ class productsModel{
     }
 
     function getProductById($id){
-        $query = $this->db->prepare('SELECT * FROM products where id = ?');
-        $query->execute([$id]);
-
-        $result = $query->fetch(PDO::FETCH_OBJ);
-        return $result;
+        try{
+            $query = $this->db->prepare('SELECT * FROM products where id = ?');
+            $query->execute([$id]);
+    
+            $result = $query->fetch(PDO::FETCH_OBJ);
+            return $result;
+        }catch(Exception $e){
+            return false;
+        }
     }
 
     //            $this->productsModel->addProduct($model, $price, $country, $brand, $characteristics, $categoryFK);

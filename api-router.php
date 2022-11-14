@@ -3,6 +3,8 @@
 require_once './libs/Router.php';
 require_once './app/controllers/productsApi.controller.php';
 require_once './app/controllers/categoryApi.controller.php';
+require_once './app/controllers/comments.controller.php';
+
 $router = new Router(); //Creación del objeto Router
 
 // Defino tabla de RUTEO
@@ -23,6 +25,16 @@ $router->addRoute("category", "POST", "categoryApiController", "addCategory"); /
 $router->addRoute("category/:ID", "DELETE", "categoryApiController", "deleteCategory"); //BORRAR CATEGORIA (POR ID)
 $router->addRoute("category/:ID", "PUT", "categoryApiController", "editCategory"); // EDITAR CATEGORIA (POR ID)
 
+//COMMENTS
+$router->addRoute("comments", "POST", "commentsApiController", "postComment"); // PUBLICAR COMENTARIO
+$router->addRoute("comments/:ID", "GET", "commentsApiController", "getCommentByID"); // GET COMENTARIO (POR ID)
+$router->addRoute("comments", "GET", "commentsApiController", "getComments"); // GET COMENTARIOS
+$router->addRoute("comments/:ID", "PUT", "commentsApiController", "editComment"); // EDITAR COMENTARIO (POR ID)
+$router->addRoute("comments/:ID", "DELETE", "commentsApiController", "deleteComment"); // EDITAR COMENTARIO (POR ID)
+
+
+// DEFAULT
+$router->setDefaultRoute("productsApiController", "badURL");
 
 
 // comando para ejecutar la ruta

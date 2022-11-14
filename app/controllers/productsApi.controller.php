@@ -9,9 +9,10 @@ class productsApiController{
     private $data;
 
     public function __construct() {
+        
         $this->model = new productsModel();
         $this->view = new ApiView();
-
+        
         $this->data = file_get_contents("php://input");
     }
 
@@ -27,53 +28,24 @@ class productsApiController{
     }
 
     public function getProducts(){
-
-        $sort = $this->getSorting();
-        $query = $this->getQuery();
-        $page = $this->getPage();
-        // echo "SORT:";var_dump($sort);
-        // echo "QUERY:";var_dump($query);
-        // if($sort == null && $query == null){
-        //     //$products = $this->model->getAll(); //get ALl sin params
-        // }
-        // else if($sort != null && $query == null){
-        //     $sort = $this->getSorting();
-        // }
-        // else if($sort == null && $query != null){
-        //     $query = $this->getQuery();
-        // }
-        // else{
-        //     $sort = $this->getSorting();
-        //     $query = $this->getQuery();
-        // }
-        $products = $this->model->getAll($sort, $query, $page);
-        $this->view->response($products);
-        // if(!empty($_GET["sort"]) 
-        //     && !empty($_GET["order"])){
-
-        //     $params = array(
-        //         "sort" => $_GET["sort"],
-        //         "order" => $_GET["order"]
-        //     );
-        //     if(in_array($params["sort"], $columns)){
-        //             if(isset($_GET['pag']) && ((!empty($_GET['pag']) || $_GET['pag'] == 0) && is_numeric($_GET['pag']))){
-        //                 $params["pag"] = $_GET['pag'];
-        //                 $products = $this->model->getAllPaged($params);
-        //             }else
-        //                 $products = $this->model->getAll($params);    
-        //     }
-        //     else
-        //         $products = $this->model->getAll();    
-
-        // }else{
-        //     $products = $this->model->getAll();
-        // }
-        // $this->view->response($products);
+            //$this->serverCheck();
+            $sort = $this->getSorting();
+            $query = $this->getQuery();
+            $page = $this->getPage();
+            $products = $this->model->getAll($sort, $query, $page);
+            $this->view->response($products);
 
     }
 
 
-
+    // private function serverCheck(){
+    //     $flag = $this->model->tryServer();
+    //     if($flag != true){
+    //         $this->view->response("El server falló", 500);
+    //         die();
+    //     }
+            
+    // }
     private function getPage($params = null){
         if(isset($_GET['pag']) && ((!empty($_GET['pag']) || $_GET['pag'] == 0) && is_numeric($_GET['pag'])) && ($_GET["pag"]) >= 0){
             $params["pag"] = $_GET["pag"];
@@ -141,14 +113,14 @@ class productsApiController{
     }
 
     public function getProductByID($params = null){
-        $id = $params[':ID'];
-        $product = $this->model->getProductByID($id);
-
-        // caso de que no exista se devuelve 404
-        if($product)
-            $this->view->response($product);
-        else
-            $this->view->response("No existe el producto (id: $id)", 404);
+            $id = $params[':ID'];
+            $product = $this->model->getProductByID($id);
+    
+            // caso de que no exista se devuelve 404
+            if($product)
+                $this->view->response($product);
+            else
+                $this->view->response("No existe el producto (id: $id)", 404);
     }
 
     public function deleteProduct($params = null){
@@ -204,5 +176,9 @@ class productsApiController{
             }else{
                 $this->view->response("Faltan completar campos", 400);
             }
+    }
+
+    public function badURL(){
+        $this->view->response("La url seleccionada no pertenece a ningún recurso", 404);
     }
 }
