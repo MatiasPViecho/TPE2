@@ -1,19 +1,34 @@
+<a name="inicio"></a>
 # TPE WEB 2
-**• [RUTAS API PRODUCTOS](#ruta-productos)**
-    • [Rutas GET Productos](#ruta-productos)
-    • [Rutas DELETE productos](#ruta-productos-delete)
-    • [Rutas PUT productos](#ruta-productos-put) 
-    • [Rutas POST productos](#ruta-productos-post)
-**• [RUTAS API CATEGORIAS](#ruta-categorias)**
-    • [Rutas GET Categorias](#ruta-categorias-get)
-    • [Rutas DELETE Categorias](#ruta-categorias-delete)
-    • [Rutas PUT Categorias](#ruta-categorias-put)
-    • [Rutas POST Categorias](#ruta-categorias-post)
-**• [RUTAS API COMENTARIOS](#ruta-comentarios)**
-    • [Rutas POST Categorias](#ruta-comentarios-get)
-    • [Rutas POST Categorias](#ruta-comentarios-delete)
-    • [Rutas POST Categorias](#ruta-comentarios-put)
-    • [Rutas POST Categorias](#ruta-comentarios-post)
+  <h2>TABLA DE CONTENIDOS</h2>
+  <ol>
+    <li>
+      <a href="#ruta-productos">RUTAS API PRODUCTOS</a>
+      <ul>
+        <li><a href="#ruta-productos-delete">DELETE productos</a></li>
+        <li><a href="#ruta-productos-put">PUT productos</a></li>
+        <li><a href="#ruta-productos-post">POST productos</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#ruta-categorias">RUTAS API CATEGORIAS</a>
+      <ul>
+        <li><a href="#ruta-categorias-get">GET Categorias</a></li>
+        <li><a href="#ruta-categorias-delete">DELETE Categorias</a></li>
+        <li><a href="#ruta-categorias-put">PUT Categorias</a></li>
+        <li><a href="#ruta-categorias-post">POST Categorias</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#ruta-comentarios">RUTAS API COMENTARIOS</a>
+      <ul>
+        <li><a href="#ruta-comentarios-get">GET Comentarios</a></li>
+        <li><a href="#ruta-comentarios-delete">DELETE Comentarios</a></li>
+        <li><a href="#ruta-comentarios-put">PUT Comentarios</a></li>
+        <li><a href="#ruta-comentarios-post">POST Comentarios</a></li>
+      </ul>
+    </li>
+  </ol>
 
 <a name="ruta-productos"></a>
 
@@ -51,9 +66,14 @@ Se puede filtrar por cualquier tipo de campo que tenga
 // Estos pedidos se pueden combinar de cualquier manera que se quiera
 /api/products?sort=price&order=desc&brand=canon&model=Mark&pag=0
 
-// Esto traerá los que cumplan con el filtrado Brand = (contiene) canon, Model = (contiene) mark, ordenados por el precio de forma descendente, en la página 0
-// Estos valores se pueden cambiar unos por otros, en caso de que no se asigne un valor de "sort" será "id" por defecto, al igual que "order" será "asc" por defecto
-//Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por ejemplo "precio=", ya que no existe el campo "precio"
+/* 
+Esto traerá los que cumplan con el filtrado Brand = (contiene) canon, Model = (contiene) mark 
+    ordenados por el precio de forma descendente, en la página 0
+Estos valores se pueden cambiar unos por otros, en caso de que no se asigne un valor de "sort" será "id" por defecto
+    Al igual que "order" será "asc" por defecto
+Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por ejemplo "precio=" 
+    Ya que no existe el campo "precio"
+*/
 
 ```
 
@@ -158,7 +178,8 @@ Se puede filtrar por cualquier tipo de campo que tenga
     /api/comments/29
 
     /api/comments?product=29
-    // devolverá un listado de todos los comentarios hechos al producto con id n°29, puede cambiarse por la id de cualquier otro producto disponible
+    // devolverá un listado de todos los comentarios hechos al producto con id n°29
+    //puede cambiarse por la id de cualquier otro producto disponible
 
 ```
 <a name="ruta-comentarios-delete"></a>
@@ -200,3 +221,5 @@ Se puede filtrar por cualquier tipo de campo que tenga
     //Agregará un nuevo comentario al producto 3 (puede cambiarse por la id de cualquier otro producto)
     // El rating está fijo entre 0 y 10, si se intenta ingresar un valor que no se encuentre entre estos valores devolverá un error
 ```
+
+### <a href="#inicio"> Volver Arriba </a>
