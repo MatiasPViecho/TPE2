@@ -148,9 +148,13 @@ class productsApiController{
         if(!empty($model) && !empty($price)
             && !empty($country) && !empty($brand)
             && !empty($characteristics) && !empty($categoryFK)){
-                $this->model->editProduct($model, $price, $country, $brand, $characteristics, $categoryFK, $id);
-                $editedProduct = $this->model->getProductByID($id);
-                $this->view->response($editedProduct);
+                try{
+                    $this->model->editProduct($model, $price, $country, $brand, $characteristics, $categoryFK, $id);
+                    $editedProduct = $this->model->getProductByID($id);
+                    $this->view->response($editedProduct);
+                }catch(Exception $e){
+                    $this->view->response("Ocurrio un error procesando la información", 400);
+                }
             }else{
                 $this->view->response("Faltan completar campos", 400);
             }
@@ -168,11 +172,15 @@ class productsApiController{
         if(!empty($model) && !empty($price)
             && !empty($country) && !empty($brand)
             && !empty($characteristics) && !empty($categoryFK)){
-                $this->model->addProduct($model, $price, $country, $brand, $characteristics, $categoryFK);
-                $id = $this->model->lastInsertId();
-                $editedProduct = $this->model->getProductByID($id);
-                $this->view->response($editedProduct, 201);
-                echo $id;
+                try{
+                    $this->model->addProduct($model, $price, $country, $brand, $characteristics, $categoryFK);
+                    $id = $this->model->lastInsertId();
+                    $editedProduct = $this->model->getProductByID($id);
+                    $this->view->response($editedProduct, 201);
+                }
+                catch(Exception $e){
+                    $this->view->response("Ocurrio un error procesando la información", 400);
+                }
             }else{
                 $this->view->response("Faltan completar campos", 400);
             }

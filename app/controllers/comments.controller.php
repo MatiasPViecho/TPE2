@@ -75,18 +75,18 @@ class commentsApiController{
         $id = $params[":ID"];
         $comment = $this->model->getComment($id);
         $data = $this->getData();
-        $comment = $data->comment;
-        $rating = $data->rating;
-        $idProduct = $data->id_product_fk;
+            
 
         if($comment){
-            if(!empty($comment) && !empty($rating) && !empty($idProduct)){
+            if(!empty($data->comment) && !empty($data->rating)){
+                $comment = $data->comment;
+                $rating = $data->rating;
                 if($rating < 1 || $rating > 10){
                     $this->view->response("El rating solo puede estar entre 0 y 10 (NO $rating)", 400);
                     die();
                 }
                 try{
-                    $this->model->editComment($id, $comment, $rating, $idProduct);
+                    $this->model->editComment($id, $comment, $rating);
                     $newComment = $this->model->getComment($id);
                     $this->view->response($newComment, 200);
                 }catch(Exception $e){

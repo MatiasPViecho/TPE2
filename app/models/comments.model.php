@@ -36,9 +36,9 @@ class commentsModel{
         $query->execute([$id]);
     }
 
-    function editComment($id, $comment, $rating, $prodID){
-        $query = $this->db->prepare("UPDATE comments SET comment = ?, rating = ?, id_product_fk = ? WHERE id = ?");
-        $query->execute([$comment, $rating, $prodID, $id]);
+    function editComment($id, $comment, $rating){
+        $query = $this->db->prepare("UPDATE comments SET comment = ?, rating = ? WHERE id = ?");
+        $query->execute([$comment, $rating, $id]);
     }
     function lastInsertId(){
         return $this->db->lastInsertId();
