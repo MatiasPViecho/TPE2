@@ -37,15 +37,6 @@ class productsApiController{
 
     }
 
-
-    // private function serverCheck(){
-    //     $flag = $this->model->tryServer();
-    //     if($flag != true){
-    //         $this->view->response("El server falló", 500);
-    //         die();
-    //     }
-            
-    // }
     private function getPage($params = null){
         if(isset($_GET['pag']) && ((!empty($_GET['pag']) || $_GET['pag'] == 0) && is_numeric($_GET['pag'])) && ($_GET["pag"]) >= 0){
             $params["pag"] = $_GET["pag"];
@@ -168,7 +159,6 @@ class productsApiController{
         $brand = $data->brand;
         $characteristics = $data->characteristics;
         $categoryFK = $data->categoryFK;
-        //echo $this->model->lastInsertId();
         if(!empty($model) && !empty($price)
             && !empty($country) && !empty($brand)
             && !empty($characteristics) && !empty($categoryFK)){

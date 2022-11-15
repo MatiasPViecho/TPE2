@@ -16,8 +16,6 @@ $router->addRoute("products/:ID", "DELETE", "productsApiController", "deleteProd
 $router->addRoute("products/:ID", "PUT", "productsApiController", "editProduct"); // EDITAR PRODUCTO (POR ID)
 $router->addRoute("products", "POST", "productsApiController", "addProduct"); // AGREGAR PRODUCTO
 
-$router->addRoute("products/model/:MODEL", "GET", "productsApiController", "getModel"); // AGREGAR PRODUCTO
-
 // CATEGORIAS
 $router->addRoute("category", "GET", "categoryApiController", "getCategories"); // VER TODAS LAS CATEGORIAS
 $router->addRoute("category/:ID", "GET", "categoryApiController", "getCategoryID"); //VER CATEGORIA POR ID

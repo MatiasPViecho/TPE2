@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-11-2022 a las 23:56:10
+-- Tiempo de generación: 15-11-2022 a las 02:23:19
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -61,11 +61,23 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `comment`, `rating`, `id_product_fk`) VALUES
-(4, 'EDIT via API', 8, 3),
+(4, 'EDIT via API', 10, 3),
 (5, 'asdasdasd', 10, 42),
 (7, 'comment via API', 5, 29),
 (8, 'comment via API', 5, 3),
-(9, 'comment via API', 5, 3);
+(9, 'comment via API', 5, 3),
+(12, 'comment via API', 5, 3),
+(14, 'testesttest', 10, 3),
+(15, 'test', 10, 3),
+(16, 'testeeeee', 10, 3),
+(17, 'asdasdsad', 10, 3),
+(18, 'asdasdsad', 5, 3),
+(19, 'asdadasdasczxc', 5, 3),
+(21, 'apiComment', 5, 55),
+(22, 'apiComment', 5, 55),
+(23, 'apiComment', 5, 55),
+(24, 'apiComment', 5, 55),
+(25, 'apiComment', 5, 55);
 
 -- --------------------------------------------------------
 
@@ -123,7 +135,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `model`, `price`, `country`, `brand`, `techChar`, `id_categories_fk`) VALUES
-(3, 'ESO C300 Mark II', 1374999, 'Japón', 'Canon', 'Incorpora el nuevo sensor DGO 4k Super 35mm', 1),
+(3, 'modeloPUT', 0, 'countryPUTPostman', 'brandPUTPostman', 'charPUTPostman', 1),
 (7, 'Canon XA40', 816000, 'Estados Unidos', 'Canon', 'Grabación 4K UHD 30p, Lente zoom óptico 20X, Pantalla táctil LCD de 3 pulgadas', 1),
 (18, 'Neewer 100W', 78225, 'Estados Unidos', 'Neewer', 'Luz de 5600 Kelvin, CRI 97+, TLCI 97+, 11000 Lux', 11),
 (29, 'BOYA BY M1 ', 7850, 'Estados Unidos', 'BOYA', 'Micrófono Lavalier, sonido omnidireccional, Baterias 1 LR44', 16),
@@ -146,7 +158,12 @@ INSERT INTO `products` (`id`, `model`, `price`, `country`, `brand`, `techChar`, 
 (49, 'modeloPOST', 0, 'countryPOSTPostman', 'brandPOSTPostman', 'charPOSTPostman', 1),
 (50, 'modeloPOST', 0, 'countryPOSTPostman', 'brandPOSTPostman', 'charPOSTPostman', 1),
 (51, 'modeloPOST', 0, 'countryPOSTPostman', 'brandPOSTPostman', 'charPOSTPostman', 1),
-(52, 'modeloPOST', 0, 'countryPOSTPostman', 'brandPOSTPostman', 'charPOSTPostman', 1);
+(52, 'modeloPOST', 0, 'countryPOSTPostman', 'brandPOSTPostman', 'charPOSTPostman', 1),
+(55, 'modeloPOST', 0, 'countryPOSTPostman', 'brandPOSTPostman', 'charPOSTPostman', 11),
+(56, 'modeloPOST', 0, 'countryPOSTPostman', 'brandPOSTPostman', 'charPOSTPostman', 1),
+(60, 'test', 22222, 'test', 'Canon', 'API', 2),
+(61, 'test', 80000, 'test', 'Canon', 'API', 1),
+(63, 'test', 80000, 'test', 'Canon', 'API', 2);
 
 -- --------------------------------------------------------
 
@@ -219,7 +236,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `images`
@@ -231,7 +248,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

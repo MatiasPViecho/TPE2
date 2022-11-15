@@ -98,7 +98,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
     // JSON PARA PROBAR FUNCIONALIDAD, COLOCAR EN EL BODY
     {
         "model": "modeloPUT",
-        "price": "pricePUT",
+        "price": 25000,
         "country": "countryPUTPostman",
         "brand": "brandPUTPostman",
         "characteristics": "charPUTPostman",
@@ -113,7 +113,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
     // JSON PARA PROBAR FUNCIONALIDAD, COLOCAR EN EL BODY
     {
         "model": "modeloPOST",
-        "price": "pricePOST",
+        "price": 1500,
         "country": "countryPOSTPostman",
         "brand": "brandPOSTPostman",
         "characteristics": "charPOSTPostman",
