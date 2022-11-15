@@ -28,6 +28,10 @@
         <li><a href="#ruta-comentarios-post">POST Comentarios</a></li>
       </ul>
     </li>
+    <li>
+    <a href="#endpoints-simples">ENDPOINTS SIN URL</a>
+    <ul></ul>
+    </li>
   </ol>
 
 <a name="ruta-productos"></a>
@@ -37,24 +41,24 @@
 ```javascript
 
 // get all productos
-/api/products
+  http://localhost/WEB2/TPE/api/products
 
 // get producto por ID
-/api/products/:ID
+  http://localhost/WEB2/TPE/api/products/:ID
 
 // get producto Ordenado
-/api/products?sort=model&order=asc
+  http://localhost/WEB2/TPE/api/products?sort=model&order=asc
 /*
 sort puede tener cualquier campo de la tabla "products"
 order puede ser tanto asc como desc
 */
 
 // get productos paginados
-/api/productos?pag=0
+  http://localhost/WEB2/TPE/api/productos?pag=0
 // Solo acepta valores de paginado iguales o mayor a 0, el paginado va de a 10 productos
 
 // get productos filtrados por campo
-/api/products?country=Japon
+  http://localhost/WEB2/TPE/api/products?country=Japon
 /* 
 Se puede filtrar por cualquier tipo de campo que tenga
     # model=X
@@ -64,7 +68,7 @@ Se puede filtrar por cualquier tipo de campo que tenga
 ```
 ```javascript
 // Estos pedidos se pueden combinar de cualquier manera que se quiera
-/api/products?sort=price&order=desc&brand=canon&model=Mark&pag=0
+    http://localhost/WEB2/TPE/api/products?sort=price&order=desc&brand=canon&model=Mark&pag=0
 
 /* 
 Esto traerá los que cumplan con el filtrado Brand = (contiene) canon, Model = (contiene) mark 
@@ -83,14 +87,14 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 
 ## Eliminar un producto (DELETE)
 ```javascript
-    /api/products/:ID // METODO DELETE
+    http://localhost/WEB2/TPE/api/products/:ID // METODO DELETE
 ```
 
 <a name="ruta-productos-put"></a>
 
 ## Editar un producto (PUT)
 ```javascript
-    /api/products/:ID // METODO PUT
+    http://localhost/WEB2/TPE/api/products/:ID // METODO PUT
     // JSON PARA PROBAR FUNCIONALIDAD, COLOCAR EN EL BODY
     {
         "model": "modeloPUT",
@@ -105,7 +109,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 
 ## Añadir un producto (POST)
 ```javascript
-    /api/products // METODO POST
+    http://localhost/WEB2/TPE/api/products // METODO POST
     // JSON PARA PROBAR FUNCIONALIDAD, COLOCAR EN EL BODY
     {
         "model": "modeloPOST",
@@ -127,23 +131,23 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 ```javascript
 
 // devuelve todas las categorias
-/api/category
+  http://localhost/WEB2/TPE/api/category
 
 // devuelve una categoria específica a un ID
-/api/category/:ID
+  http://localhost/WEB2/TPE/api/category/:ID
 ```
 <a name="ruta-categorias-delete"></a>
 
 ## Borrar Categoria (DELETE)
 ```javascript
-    /api/category/:ID // METODO DELETE
+    http://localhost/WEB2/TPE/api/category/:ID // METODO DELETE
     // devolverá como resultado la categoría eliminada
 ```
 <a name="ruta-categorias-put"></a>
 
 ## Editar Categoria (PUT)
 ```javascript
-    /api/category/:ID // METODO PUT
+    http://localhost/WEB2/TPE/api/category/:ID // METODO PUT
     // devolverá como resultado la categoría editada
     // CONTENIDO BODY
     {
@@ -154,7 +158,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 
 ## Agregar Categoria (POST)
 ```javascript
-    /api/category // METODO POST
+    http://localhost/WEB2/TPE/api/category // METODO POST
     // devolverá como resultado la categoría agregada
     // CONTENIDO BODY
     {
@@ -170,7 +174,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 
 ## Obtener Comentarios (GET)
 ```javascript
-    /api/comments
+    http://localhost/WEB2/TPE/api/comments
     // devolverá como resultado un listado con todos los comentarios
     /api/comments/:ID
     // devolverá como resultado un listado con todos los comentarios de X producto
@@ -187,7 +191,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 ## Borrar Comentario (DELETE)
 
 ```javascript
-   /api/comments/:ID
+   http://localhost/WEB2/TPE/api/comments/:ID
    // devolverá como resultado el comentario eliminado
    // puede probarse con:
     /api/comments/4 //mientras la id 4 exista
@@ -196,7 +200,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 
 ## Editar Comentarios (PUT)
 ```javascript
-    /api/comments/:ID
+    http://localhost/WEB2/TPE/api/comments/:ID
     // devolverá como resultado el comentario editado
     // puede probarse con:
     /api/comments/4
@@ -211,7 +215,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 
 ## Publicar Comentarios (POST)
 ```javascript
-    /api/comments //METODO POST
+    http://localhost/WEB2/TPE/api/comments //METODO POST
     // CONTENIDO BODY
     {
         "comment": "comment via API",
@@ -221,5 +225,26 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
     //Agregará un nuevo comentario al producto 3 (puede cambiarse por la id de cualquier otro producto)
     // El rating está fijo entre 0 y 10, si se intenta ingresar un valor que no se encuentre entre estos valores devolverá un error
 ```
+
+<a name="endpoints-simples"></a>
+# ENDPOINTS SIN URL
+### Productos:
+* `GET` `/api/products` 
+* `GET` `/api/products/:ID` 
+* `POST` `/api/products` 
+* `PUT` `/api/products/:ID`
+* `DELETE` `/api/products/:ID`
+### Categorias
+* `GET` `/api/category` 
+* `GET` `/api/category/:ID`
+* `POST` `/api/category` 
+* `PUT` `/api/category/:ID`
+* `DELETE` `/api/category/:ID`
+### Comments
+* `GET` `/api/comments` 
+* `GET` `/api/comments/:ID`
+* `POST` `/api/comments` 
+* `PUT` `/api/comments/:ID`
+* `DELETE` `/api/comments/:ID`
 
 ### <a href="#inicio"> Volver Arriba </a>
