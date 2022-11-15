@@ -38,7 +38,7 @@
 
 ## RUTAS API - PRODUCTOS (GET)
 
-```javascript
+```json
 
 // get all productos
   http://localhost/WEB2/TPE/api/products
@@ -66,7 +66,7 @@ Se puede filtrar por cualquier tipo de campo que tenga
     # Por defecto se filtrará por ID 
 */
 ```
-```javascript
+```json
 // Estos pedidos se pueden combinar de cualquier manera que se quiera
     http://localhost/WEB2/TPE/api/products?sort=price&order=desc&brand=canon&model=Mark&pag=0
 
@@ -86,14 +86,14 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 <a name="ruta-productos-delete"></a>
 
 ## Eliminar un producto (DELETE)
-```javascript
+```json
     http://localhost/WEB2/TPE/api/products/:ID // METODO DELETE
 ```
 
 <a name="ruta-productos-put"></a>
 
 ## Editar un producto (PUT)
-```javascript
+```json
     http://localhost/WEB2/TPE/api/products/:ID // METODO PUT
     // JSON PARA PROBAR FUNCIONALIDAD, COLOCAR EN EL BODY
     {
@@ -108,7 +108,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 <a name="ruta-productos-post"></a>
 
 ## Añadir un producto (POST)
-```javascript
+```json
     http://localhost/WEB2/TPE/api/products // METODO POST
     // JSON PARA PROBAR FUNCIONALIDAD, COLOCAR EN EL BODY
     {
@@ -128,7 +128,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 <a name="ruta-categorias-get"></a>
 
 ## Obtener Categorias (GET)
-```javascript
+```json
 
 // devuelve todas las categorias
   http://localhost/WEB2/TPE/api/category
@@ -139,14 +139,14 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 <a name="ruta-categorias-delete"></a>
 
 ## Borrar Categoria (DELETE)
-```javascript
+```json
     http://localhost/WEB2/TPE/api/category/:ID // METODO DELETE
     // devolverá como resultado la categoría eliminada
 ```
 <a name="ruta-categorias-put"></a>
 
 ## Editar Categoria (PUT)
-```javascript
+```json
     http://localhost/WEB2/TPE/api/category/:ID // METODO PUT
     // devolverá como resultado la categoría editada
     // CONTENIDO BODY
@@ -157,7 +157,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 <a name="ruta-categorias-post"></a>
 
 ## Agregar Categoria (POST)
-```javascript
+```json
     http://localhost/WEB2/TPE/api/category // METODO POST
     // devolverá como resultado la categoría agregada
     // CONTENIDO BODY
@@ -173,7 +173,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 <a name="ruta-comentarios-get"></a>
 
 ## Obtener Comentarios (GET)
-```javascript
+```json
     http://localhost/WEB2/TPE/api/comments
     // devolverá como resultado un listado con todos los comentarios
     /api/comments/:ID
@@ -190,7 +190,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 
 ## Borrar Comentario (DELETE)
 
-```javascript
+```json
    http://localhost/WEB2/TPE/api/comments/:ID
    // devolverá como resultado el comentario eliminado
    // puede probarse con:
@@ -199,7 +199,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 <a name="ruta-comentarios-put"></a>
 
 ## Editar Comentarios (PUT)
-```javascript
+```json
     http://localhost/WEB2/TPE/api/comments/:ID
     // devolverá como resultado el comentario editado
     // puede probarse con:
@@ -214,7 +214,7 @@ Dará error si se coloca un tipo de filtrado que no pertenezca a la tabla, por e
 <a name="ruta-comentarios-post"></a>
 
 ## Publicar Comentarios (POST)
-```javascript
+```json
     http://localhost/WEB2/TPE/api/comments //METODO POST
     // CONTENIDO BODY
     {
